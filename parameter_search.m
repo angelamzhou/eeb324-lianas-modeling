@@ -4,7 +4,8 @@ low_cand = 0.4;
 high_cand = 0.6; 
 
 loops = 2000; 
-
+% I(0.02, 0.06, [0.25, 0.18, 0.29], 0.15, 0.03) 
+% This gives us reasonable infected equilibrium values 
 candidates = cell(0); 
 successes = 0 ; 
 for i = 1:loops
@@ -20,7 +21,13 @@ for i = 1:loops
 %       rules for generating mu 
 % generate 
         mu = ones(1,3); %*random('unif', 0, 0.15); 
+        
+%         Mortality of young vs old: 
+% Mature trees: ~0.185
+% Young trees: .25
         mu(1) = random('unif', 0, 0.15); 
+%         Extra mortality: 3-4 percent extra 
+% more virulent lianas: double or triple 
         mu(2) = random('unif', 0, 0.15); 
         mu(3) = random('unif', 0, 0.15); 
       
